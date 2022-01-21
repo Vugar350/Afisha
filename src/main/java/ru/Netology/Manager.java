@@ -7,11 +7,7 @@ public class Manager {
     Manager() {
 
     }
-
     public Manager(int customMovieLength) {
-        if (customMovieLength > 0) {
-            customMovieLength = defaultMovieLength;
-        }
 
     }
 
