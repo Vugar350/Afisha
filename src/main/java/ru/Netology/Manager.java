@@ -7,9 +7,7 @@ public class Manager {
     Manager() {
 
     }
-    public Manager(int customMovieLength) {
 
-    }
 
 
     public void add(Films movie) {

@@ -24,7 +24,7 @@ class MovieManagerTest {
 
     @Test
     void mustShowTenMovie() {
-        Manager manager = new Manager(10);
+        Manager manager = new Manager();
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -41,7 +41,7 @@ class MovieManagerTest {
 
     @Test
     void zeroMovie() {
-        Manager manager = new Manager(0);
+        Manager manager = new Manager();
         Films[] actual = manager.lastFilm();
         Films[] expected = new Films[0];
         assertArrayEquals(expected, actual);
@@ -50,7 +50,7 @@ class MovieManagerTest {
 
     @Test
     void showOverMax() {
-        Manager manager = new Manager(11);
+        Manager manager = new Manager();
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -64,5 +64,18 @@ class MovieManagerTest {
         Films[] actual = manager.lastFilm();
         assertArrayEquals(expected, actual);
 
+    }
+    @Test
+    void mustShowFiveMovie() {
+        Manager manager = new Manager();
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        Films[] actual = manager.lastFilm();
+        Films[] expected = {sixth,fifth,fourth,third,second,first};
+        assertArrayEquals(expected, actual);
     }
 }
