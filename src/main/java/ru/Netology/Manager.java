@@ -2,14 +2,14 @@ package ru.Netology;
 
 public class Manager {
     private Films[] film = new Films[0];
-    private int defaultMovieLength;
+    private int defaultMovieLength=10;
 
     Manager() {
 
     }
 
-    public Manager(int defaultMovieLength) {
-       this.defaultMovieLength=10;
+    public Manager(int DefaultMovieLength) {
+        defaultMovieLength=DefaultMovieLength;
 
     }
 
@@ -27,7 +27,7 @@ public class Manager {
 
     public Films[] lastFilm(int defaultMovieLength) {
         int filmLength = film.length;
-        if (filmLength > defaultMovieLength) {
+        if (filmLength < defaultMovieLength) {
             defaultMovieLength = filmLength;
         }
 

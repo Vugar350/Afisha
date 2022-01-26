@@ -41,7 +41,7 @@ class MovieManagerTest {
 
     @Test
     void zeroMovie() {
-        Manager manager = new Manager(0);
+        Manager manager = new Manager();
         Films[] actual = manager.lastFilm(0);
         Films[] expected = new Films[0];
         assertArrayEquals(expected, actual);
@@ -50,7 +50,7 @@ class MovieManagerTest {
 
     @Test
     void showOverMax() {
-        Manager manager = new Manager(11);
+        Manager manager = new Manager();
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -68,7 +68,7 @@ class MovieManagerTest {
 
     @Test
     void mustShowSixthMovie() {
-        Manager manager = new Manager();
+        Manager manager = new Manager(5);
         manager.add(first);
         manager.add(second);
         manager.add(third);
