@@ -2,12 +2,16 @@ package ru.Netology;
 
 public class Manager {
     private Films[] film = new Films[0];
-    private int defaultMovieLength = 10;
+    private int defaultMovieLength;
 
     Manager() {
 
     }
 
+    public Manager(int defaultMovieLength) {
+       this.defaultMovieLength=10;
+
+    }
 
 
     public void add(Films movie) {
@@ -21,20 +25,23 @@ public class Manager {
         film = tmp;
     }
 
-    public Films[] lastFilm() {
+    public Films[] lastFilm(int defaultMovieLength) {
         int filmLength = film.length;
-        if (filmLength < defaultMovieLength) {
+        if (filmLength > defaultMovieLength) {
             defaultMovieLength = filmLength;
         }
+
         Films[] customFilms = new Films[defaultMovieLength];
         for (int i = 0; i < customFilms.length; i++) {
             int result = filmLength - i - 1;
             customFilms[i] = film[result];
         }
         return customFilms;
-    }
 
+
+    }
 }
+
 
 
 
