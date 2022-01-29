@@ -27,7 +27,7 @@ public class MovieManager {
 
     }
 
-    public Movie[] getLastAdd(int defaultMovieLength) {
+    public Movie[] getLastAdd() {
         if (movies.length > defaultMovieLength) {
             Movie[] result = new Movie[defaultMovieLength];
             for (int i = 0; i < result.length; i++) {

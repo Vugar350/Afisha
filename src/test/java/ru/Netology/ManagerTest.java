@@ -36,14 +36,26 @@ class MovieManagerTest {
         manager.addMovie(eighth);
         manager.addMovie(ninth);
         manager.addMovie(tenth);
-        Movie[] actual = manager.getLastAdd(10);
+        Movie[] actual = manager.getLastAdd();
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    void mustShow5Movie() {
+        MovieManager manager = new MovieManager(10);
+        manager.addMovie(first);
+        manager.addMovie(second);
+        manager.addMovie(third);
+        manager.addMovie(fourth);
+        manager.addMovie(fifth);
+        Movie[] expected = {fifth,fourth,third,second,first};
+        Movie[] actual = manager.getLastAdd();
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void mustShowNothing() {
-        MovieManager manager = new MovieManager();
-        Movie[] actual = manager.getLastAdd(0);
+        MovieManager manager = new MovieManager(10);
+        Movie[] actual = manager.getLastAdd();
         Movie [] expected = new Movie[0];
         assertArrayEquals(expected, actual);
     }
@@ -53,7 +65,7 @@ class MovieManagerTest {
 
     @Test
     void mustShowOverMax() {
-        MovieManager manager = new MovieManager(2);
+        MovieManager manager = new MovieManager(10);
         manager.addMovie(first);
         manager.addMovie(first);
         manager.addMovie(second);
@@ -65,7 +77,7 @@ class MovieManagerTest {
         manager.addMovie(eighth);
         manager.addMovie(ninth);
         manager.addMovie(tenth);
-        Movie[] actual = manager.getLastAdd(10);
+        Movie[] actual = manager.getLastAdd();
         assertArrayEquals(expected, actual);
 
     }
